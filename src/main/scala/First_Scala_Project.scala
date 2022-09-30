@@ -14,7 +14,7 @@ object First_Scala_Project
     var data =sc.textFile(input)
 
     var mapdata= data.flatMap(x => x.split(" ")).map(x => (x,1)).reduceByKey(_+_)
-    mapdata.saveAsTextFile(output)
+    mapdata.coalesce(1)saveAsTextFile(output)
 
   }
 }
